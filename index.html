@@ -5,124 +5,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Registo de Horas — Propósitos Interligados</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy:        #1E2D40;
-  --navy-deep:   #141E2B;
-  --terracotta:  #B85C38;
-  --green:       #2D6A4F;
-  --green-light: #D8F3DC;
-  --green-text:  #1B4332;
-  --amber:       #B45309;
-  --amber-light: #FEF3C7;
-  --white:       #FFFFFF;
-  --bg:          #F2F4F7;
-  --card-shadow: 0 2px 20px rgba(20,30,43,0.10);
+  --navy:         #1A2535;
+  --navy-mid:     #22304A;
+  --terra:        #C4622D;
+  --terra-light:  #FDEEE6;
+  --green:        #25D366;
+  --green-deep:   #1A9E4A;
+  --green-light:  #E6F9EE;
+  --green-text:   #0F6B30;
+  --orange:       #E07B2A;
+  --orange-light: #FEF3E7;
+  --white:        #FFFFFF;
+  --bg:           #EEF1F6;
+  --text-main:    #1A2535;
+  --text-mid:     #4A5568;
+  --text-soft:    #8A94A6;
+  --border:       #DDE2EA;
 }
 
 body {
-font-family: ‘DM Sans’, sans-serif;
+font-family: ‘Inter’, sans-serif;
 background: var(–bg);
 min-height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 0 0 3rem;
+padding: 0 0 4rem;
 }
 
-/* ── HEADER ── */
+/* ═══════════════════════════
+HEADER
+═══════════════════════════ */
 .header {
 width: 100%;
-background: linear-gradient(160deg, var(–navy-deep) 0%, var(–navy) 100%);
-padding: 2rem 1.5rem 2.6rem;
+background: linear-gradient(150deg, #0F1C2E 0%, #1A2D47 55%, #1F3555 100%);
+padding: 2.4rem 1.6rem 3rem;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 1.1rem;
 position: relative;
 overflow: hidden;
 }
+
+/* Círculo decorativo fundo */
 .header::before {
 content: ‘’;
 position: absolute;
-top: -60px; right: -60px;
-width: 180px; height: 180px;
+top: -80px; right: -80px;
+width: 240px; height: 240px;
 border-radius: 50%;
-background: rgba(184,92,56,0.08);
+background: radial-gradient(circle, rgba(196,98,45,0.12) 0%, transparent 70%);
 }
 .header::after {
 content: ‘’;
 position: absolute;
-bottom: -32px;
-left: 50%;
+bottom: -36px; left: 50%;
 transform: translateX(-50%);
-width: 140%;
-height: 64px;
+width: 150%; height: 72px;
 background: var(–bg);
 border-radius: 50%;
 }
 
-.logo-wrap {
+/* ── LOGO PI ── */
+.logo-area {
 display: flex;
 align-items: center;
-gap: 14px;
-z-index: 1;
+gap: 16px;
+z-index: 2;
+margin-bottom: 1.6rem;
 }
 
-.logo-svg { width: 58px; height: 58px; flex-shrink: 0; }
+.pi-logo {
+width: 64px;
+height: 64px;
+flex-shrink: 0;
+filter: drop-shadow(0 4px 12px rgba(196,98,45,0.3));
+}
 
-.logo-text-block {
+.company-text {
 display: flex;
 flex-direction: column;
-gap: 2px;
+gap: 3px;
 }
-.logo-name {
-font-size: 15px;
-font-weight: 700;
-letter-spacing: 1.8px;
+.company-name {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 22px;
+font-weight: 800;
+letter-spacing: 2.5px;
 text-transform: uppercase;
 color: var(–white);
-line-height: 1.25;
+line-height: 1.15;
 }
-.logo-sub {
-font-size: 11px;
+.company-name span { color: var(–terra); }
+.company-tagline {
+font-family: ‘Inter’, sans-serif;
+font-size: 10.5px;
 font-weight: 400;
-color: rgba(255,255,255,0.50);
-letter-spacing: 0.4px;
+color: rgba(255,255,255,0.42);
+letter-spacing: 1px;
+text-transform: uppercase;
 }
 
-.header-divider {
-width: 44px;
+/* linha separadora terracotta */
+.sep-line {
+width: 50px;
 height: 2px;
-background: var(–terracotta);
+background: linear-gradient(90deg, var(–terra), transparent);
 border-radius: 2px;
-z-index: 1;
+z-index: 2;
+margin-bottom: 1.6rem;
+align-self: flex-start;
+margin-left: calc(50% - 25px);
 }
 
-.pro-block { text-align: center; z-index: 1; }
-.pro-label-small {
-font-size: 10px;
+/* ── PROFISSIONAL ── */
+.pro-area {
+text-align: center;
+z-index: 2;
+}
+.pro-eyebrow {
+font-family: ‘Inter’, sans-serif;
+font-size: 9.5px;
 font-weight: 600;
 text-transform: uppercase;
-letter-spacing: 1.6px;
-color: rgba(255,255,255,0.40);
-margin-bottom: 5px;
+letter-spacing: 2px;
+color: rgba(255,255,255,0.35);
+margin-bottom: 6px;
 }
 .pro-name {
-font-family: ‘Playfair Display’, serif;
-font-size: 28px;
-font-weight: 600;
+font-family: ‘Barlow’, sans-serif;
+font-size: 32px;
+font-weight: 800;
 color: var(–white);
-letter-spacing: 0.3px;
-text-shadow: 0 2px 16px rgba(0,0,0,0.30);
+letter-spacing: -0.5px;
+line-height: 1;
+text-shadow: 0 2px 20px rgba(0,0,0,0.4);
 }
 
-/* ── CONTENT ── */
+/* ═══════════════════════════
+CONTENT
+═══════════════════════════ */
 .content {
 width: 100%;
-max-width: 420px;
+max-width: 430px;
 padding: 2rem 1rem 0;
 display: flex;
 flex-direction: column;
@@ -131,38 +160,47 @@ gap: 1rem;
 
 .card {
 background: var(–white);
-border-radius: 18px;
-padding: 1.4rem 1.4rem 1.5rem;
-box-shadow: var(–card-shadow);
+border-radius: 20px;
+padding: 1.5rem;
+box-shadow: 0 2px 24px rgba(26,37,53,0.08);
+border: 1px solid rgba(221,226,234,0.6);
 }
 
 .section-label {
-font-size: 10px;
+font-family: ‘Barlow’, sans-serif;
+font-size: 11px;
 font-weight: 700;
 text-transform: uppercase;
-letter-spacing: 1.2px;
-color: #9AA0AC;
-margin-bottom: 1.1rem;
+letter-spacing: 1.5px;
+color: var(–text-soft);
+margin-bottom: 1.2rem;
 display: flex;
 align-items: center;
-gap: 8px;
+gap: 10px;
+}
+.section-label .dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(–terra);
+flex-shrink: 0;
 }
 .section-label::after {
 content: ‘’;
 flex: 1;
 height: 1px;
-background: #EBEBEB;
+background: var(–border);
 }
 
-.field { margin-bottom: 1rem; }
+.field { margin-bottom: 1.1rem; }
 .field:last-child { margin-bottom: 0; }
 
 label {
 display: block;
-font-size: 12.5px;
+font-family: ‘Inter’, sans-serif;
+font-size: 13px;
 font-weight: 600;
-color: #4A5263;
-margin-bottom: 6px;
+color: var(–text-mid);
+margin-bottom: 7px;
 letter-spacing: 0.1px;
 }
 
@@ -170,152 +208,294 @@ input[type=“date”],
 input[type=“time”],
 input[type=“text”] {
 width: 100%;
-padding: 13px 14px;
-border: 1.5px solid #E4E7EC;
-border-radius: 12px;
-background: #FAFBFC;
-color: var(–navy-deep);
-font-size: 16px;
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 500;
+padding: 14px 16px;
+border: 1.5px solid var(–border);
+border-radius: 13px;
+background: #F8FAFC;
+color: var(–text-main);
+font-family: ‘Barlow’, sans-serif;
+font-size: 17px;
+font-weight: 600;
 -webkit-appearance: none;
 appearance: none;
 transition: border-color 0.15s, box-shadow 0.15s;
 }
 input[type=“date”],
-input[type=“time”] { font-size: 18px; font-weight: 600; }
+input[type=“time”] {
+font-size: 20px;
+font-weight: 700;
+letter-spacing: 0.5px;
+}
 input:focus {
 outline: none;
-border-color: var(–navy);
+border-color: var(–navy-mid);
 background: #fff;
-box-shadow: 0 0 0 3px rgba(30,45,64,0.08);
+box-shadow: 0 0 0 3px rgba(26,37,53,0.07);
 }
 .obra-hint {
 font-size: 11.5px;
-color: #B0B6C3;
+color: var(–text-soft);
 margin-top: 5px;
+font-style: italic;
 }
+
 .divider {
 border: none;
-border-top: 1px solid #F0F1F3;
-margin: 1.1rem 0;
+border-top: 1px solid #EEF1F5;
+margin: 1.2rem 0;
 }
 
-/* Results */
-.total-box {
-background: var(–amber-light);
+/* ── RESULT BOXES ── */
+
+/* Entrada / Saída — cor neutra navy suave */
+.horario-row {
+display: flex;
+gap: 8px;
+margin-bottom: 8px;
+}
+.horario-pill {
+flex: 1;
+background: #F0F4FA;
+border-radius: 12px;
+padding: 11px 14px;
+display: flex;
+flex-direction: column;
+gap: 2px;
+border: 1px solid #E2E8F0;
+}
+.horario-pill-label { font-size: 10px; font-weight: 600; color: var(–text-soft); text-transform: uppercase; letter-spacing: 0.8px; }
+.horario-pill-val { font-family: ‘Barlow’, sans-serif; font-size: 18px; font-weight: 700; color: var(–navy); letter-spacing: 0.3px; }
+
+/* Almoço — laranja */
+.almoco-box {
+background: var(–orange-light);
 border-radius: 13px;
 padding: 13px 16px;
 display: flex;
 align-items: center;
 justify-content: space-between;
 margin-bottom: 8px;
-border: 1px solid rgba(180,83,9,0.12);
+border: 1px solid rgba(224,123,42,0.15);
 }
-.total-label { font-size: 12.5px; font-weight: 600; color: var(–amber); }
-.total-value { font-size: 23px; font-weight: 700; color: var(–amber); font-variant-numeric: tabular-nums; letter-spacing: -0.5px; }
+.almoco-label { font-size: 13px; font-weight: 600; color: var(–orange); }
+.almoco-value { font-family: ‘Barlow’, sans-serif; font-size: 24px; font-weight: 800; color: var(–orange); letter-spacing: -0.5px; }
 
+/* Total bruto — navy suave */
+.total-box {
+background: #F0F4FA;
+border-radius: 13px;
+padding: 13px 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 8px;
+border: 1px solid #E2E8F0;
+}
+.total-label { font-size: 13px; font-weight: 600; color: var(–text-mid); }
+.total-value { font-family: ‘Barlow’, sans-serif; font-size: 24px; font-weight: 800; color: var(–navy); letter-spacing: -0.5px; }
+
+/* Horas trabalhadas — verde WhatsApp */
 .liquido-box {
 background: var(–green-light);
-border-radius: 13px;
-padding: 13px 16px;
+border-radius: 14px;
+padding: 16px 18px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-margin-bottom: 8px;
-border: 1px solid rgba(45,106,79,0.15);
+border: 1.5px solid rgba(37,211,102,0.25);
+box-shadow: 0 4px 16px rgba(37,211,102,0.12);
 }
-.liquido-label { font-size: 12.5px; font-weight: 600; color: var(–green-text); }
-.liquido-value { font-size: 23px; font-weight: 700; color: var(–green-text); font-variant-numeric: tabular-nums; letter-spacing: -0.5px; }
+.liquido-label { font-size: 13.5px; font-weight: 700; color: var(–green-text); }
+.liquido-value { font-family: ‘Barlow’, sans-serif; font-size: 28px; font-weight: 900; color: var(–green-text); letter-spacing: -1px; }
 
-.almoco-box {
-background: #F5F6F8;
-border-radius: 11px;
-padding: 10px 14px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-.almoco-label { font-size: 12px; color: #9AA0AC; font-weight: 500; }
-.almoco-value { font-size: 14px; font-weight: 600; color: #6B7280; }
-
+/* ── NOTA ── */
 textarea {
 width: 100%;
-padding: 13px 14px;
-border: 1.5px solid #E4E7EC;
-border-radius: 12px;
-background: #FAFBFC;
-color: var(–navy-deep);
+padding: 16px;
+border: 1.5px solid var(–border);
+border-radius: 13px;
+background: #F8FAFC;
+color: var(–text-main);
 font-size: 15px;
-font-family: ‘DM Sans’, sans-serif;
+font-family: ‘Inter’, sans-serif;
+line-height: 1.6;
 resize: none;
-min-height: 80px;
+min-height: 110px;
 transition: border-color 0.15s;
 }
-textarea:focus { outline: none; border-color: var(–navy); box-shadow: 0 0 0 3px rgba(30,45,64,0.08); }
+textarea:focus { outline: none; border-color: var(–navy-mid); box-shadow: 0 0 0 3px rgba(26,37,53,0.07); }
 
+/* ── BOTÃO ── */
 .btn-whatsapp {
 width: 100%;
-padding: 17px;
-background: linear-gradient(135deg, #25D366 0%, #1EB85A 100%);
+padding: 18px;
+background: linear-gradient(135deg, #25D366 0%, #1DB954 100%);
 color: #fff;
 border: none;
 border-radius: 16px;
-font-size: 16.5px;
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 700;
+font-family: ‘Barlow’, sans-serif;
+font-size: 18px;
+font-weight: 800;
+letter-spacing: 0.5px;
 cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 10px;
-box-shadow: 0 6px 18px rgba(37,211,102,0.32);
+gap: 12px;
+box-shadow: 0 8px 24px rgba(37,211,102,0.35);
 transition: transform 0.12s, box-shadow 0.12s;
-letter-spacing: 0.2px;
+text-transform: uppercase;
 }
-.btn-whatsapp:active { transform: scale(0.97); box-shadow: 0 3px 8px rgba(37,211,102,0.2); }
-.wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.btn-whatsapp:active { transform: scale(0.97); box-shadow: 0 4px 12px rgba(37,211,102,0.2); }
+.wa-icon { width: 24px; height: 24px; flex-shrink: 0; }
 
 .error-msg {
 background: #FFF0F0;
 border: 1px solid #FFD0D0;
 color: #C0392B;
-border-radius: 10px;
-padding: 10px 14px;
-font-size: 13px;
+border-radius: 12px;
+padding: 12px 16px;
+font-size: 13.5px;
 display: none;
 text-align: center;
+font-weight: 500;
 }
+
+/* Nome do profissional editável */
+.pro-name-input {
+font-family: ‘Barlow’, sans-serif;
+font-size: 32px;
+font-weight: 800;
+color: var(–white);
+letter-spacing: -0.5px;
+line-height: 1;
+text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+background: transparent;
+border: none;
+border-bottom: 2px solid rgba(255,255,255,0.25);
+outline: none;
+width: 100%;
+text-align: center;
+padding: 4px 0 6px;
+caret-color: var(–terra);
+transition: border-color 0.2s;
+}
+.pro-name-input::placeholder {
+color: rgba(255,255,255,0.3);
+font-weight: 500;
+font-size: 20px;
+}
+.pro-name-input:focus {
+border-bottom-color: var(–terra);
+}
+
+/* ── TIME PICKER PERSONALIZADO ── */
+.time-picker {
+display: flex;
+align-items: center;
+background: #F8FAFC;
+border: 1.5px solid var(–border);
+border-radius: 13px;
+overflow: hidden;
+transition: border-color 0.15s, box-shadow 0.15s;
+}
+.time-picker:focus-within {
+border-color: var(–navy-mid);
+box-shadow: 0 0 0 3px rgba(26,37,53,0.07);
+}
+.time-col {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.time-col + .time-col { border-left: 1px solid var(–border); }
+.time-sep {
+font-family: ‘Barlow’, sans-serif;
+font-size: 26px;
+font-weight: 700;
+color: var(–text-mid);
+padding: 0 2px;
+line-height: 1;
+align-self: center;
+}
+.time-btn {
+width: 100%;
+padding: 10px 0;
+background: none;
+border: none;
+cursor: pointer;
+font-size: 18px;
+color: var(–terra);
+line-height: 1;
+transition: background 0.1s;
+-webkit-tap-highlight-color: transparent;
+}
+.time-btn:active { background: rgba(196,98,45,0.08); }
+.time-val {
+font-family: ‘Barlow’, sans-serif;
+font-size: 28px;
+font-weight: 800;
+color: var(–navy);
+letter-spacing: 1px;
+min-width: 48px;
+text-align: center;
+padding: 4px 0;
+line-height: 1;
+}
+.time-hidden { display: none; }
 </style>
 
 </head>
 <body>
 
+<!-- ══ HEADER ══ -->
+
 <div class="header">
-  <div class="logo-wrap">
-    <!-- Logo SVG: retângulo terracotta + arco P em cinzento escuro -->
-    <svg class="logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="5" y="18" width="10" height="30" rx="1.5" fill="#B85C38"/>
-      <path d="M15 18 h9 a14 14 0 0 1 0 28 h-9" stroke="#CBD5E1" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>
-    <div class="logo-text-block">
-      <span class="logo-name">Propósitos<br>Interligados</span>
-      <span class="logo-sub">Pintura &amp; Barramento</span>
-    </div>
+  <div class="logo-area">
+
+```
+<!-- LOGO PI: P (arco cinzento) + I (pilar terracotta) juntos -->
+<svg class="pi-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Letra I — pilar terracotta (haste vertical) -->
+  <rect x="6" y="14" width="12" height="36" rx="2" fill="#C4622D"/>
+
+  <!-- Letra P — arco sobre o I, partindo do topo do pilar -->
+  <!-- haste vertical do P (funde com o I) -->
+  <rect x="6" y="14" width="6" height="36" rx="0" fill="#2E4063"/>
+  <!-- barriga do P -->
+  <path d="M12 14 h12 a15 15 0 0 1 0 22 h-12 Z" fill="#2E4063"/>
+  <!-- buraco interior da barriga (negativo) -->
+  <path d="M13.5 18 h9 a9 9 0 0 1 0 14 h-9 Z" fill="white"/>
+
+  <!-- Pilar terracotta bem visível à frente -->
+  <rect x="6" y="14" width="7" height="36" rx="2" fill="#C4622D"/>
+</svg>
+
+<div class="company-text">
+  <div class="company-name">PROPÓSITOS<br><span>INTERLIGADOS</span></div>
+  <div class="company-tagline">Pintura &amp; Barramento</div>
+</div>
+```
+
   </div>
 
-  <div class="header-divider"></div>
+  <div class="sep-line"></div>
 
-  <div class="pro-block">
-    <p class="pro-label-small">Profissional</p>
-    <p class="pro-name" id="pro-label">Oliveira França</p>
+  <div class="pro-area">
+    <p class="pro-eyebrow">O seu nome</p>
+    <input type="text" id="pro-label" class="pro-name-input" placeholder="Escreva o seu nome" autocomplete="off" spellcheck="false">
   </div>
 </div>
 
+<!-- ══ CONTENT ══ -->
+
 <div class="content">
 
+  <!-- LOCAL & DATA -->
+
   <div class="card">
-    <p class="section-label">Local &amp; Data</p>
+    <p class="section-label"><span class="dot"></span>Local &amp; Data</p>
     <div class="field">
       <label>Local da obra</label>
       <input type="text" id="obra" placeholder="Ex: Rua das Flores, Lisboa">
@@ -327,46 +507,108 @@ text-align: center;
     </div>
   </div>
 
+  <!-- HORÁRIOS -->
+
   <div class="card">
-    <p class="section-label">Horários</p>
+    <p class="section-label"><span class="dot"></span>Horários</p>
     <div class="field">
       <label>Entrada</label>
-      <input type="time" id="entrada">
+      <div class="time-picker" id="picker-entrada">
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('entrada','h',1)">▲</button>
+          <span class="time-val" id="disp-h-entrada">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('entrada','h',-1)">▼</button>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('entrada','m',1)">▲</button>
+          <span class="time-val" id="disp-m-entrada">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('entrada','m',-1)">▼</button>
+        </div>
+      </div>
+      <input type="hidden" id="entrada" class="time-hidden">
     </div>
     <div class="field">
       <label>Saída para almoço</label>
-      <input type="time" id="saida-almoco">
+      <div class="time-picker" id="picker-saida-almoco">
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('saida-almoco','h',1)">▲</button>
+          <span class="time-val" id="disp-h-saida-almoco">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('saida-almoco','h',-1)">▼</button>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('saida-almoco','m',1)">▲</button>
+          <span class="time-val" id="disp-m-saida-almoco">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('saida-almoco','m',-1)">▼</button>
+        </div>
+      </div>
+      <input type="hidden" id="saida-almoco" class="time-hidden">
     </div>
     <div class="field">
       <label>Retorno do almoço</label>
-      <input type="time" id="retorno-almoco">
+      <div class="time-picker" id="picker-retorno-almoco">
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('retorno-almoco','h',1)">▲</button>
+          <span class="time-val" id="disp-h-retorno-almoco">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('retorno-almoco','h',-1)">▼</button>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('retorno-almoco','m',1)">▲</button>
+          <span class="time-val" id="disp-m-retorno-almoco">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('retorno-almoco','m',-1)">▼</button>
+        </div>
+      </div>
+      <input type="hidden" id="retorno-almoco" class="time-hidden">
     </div>
     <div class="field">
       <label>Saída final</label>
-      <input type="time" id="saida-final">
+      <div class="time-picker" id="picker-saida-final">
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('saida-final','h',1)">▲</button>
+          <span class="time-val" id="disp-h-saida-final">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('saida-final','h',-1)">▼</button>
+        </div>
+        <span class="time-sep">:</span>
+        <div class="time-col">
+          <button type="button" class="time-btn" onclick="changeTime('saida-final','m',1)">▲</button>
+          <span class="time-val" id="disp-m-saida-final">--</span>
+          <button type="button" class="time-btn" onclick="changeTime('saida-final','m',-1)">▼</button>
+        </div>
+      </div>
+      <input type="hidden" id="saida-final" class="time-hidden">
     </div>
-    <hr class="divider">
 
 ```
+<hr class="divider">
+
+<!-- Total bruto -->
 <div class="total-box">
   <span class="total-label">Total (entrada → saída)</span>
   <span class="total-value" id="total-display">--h --m</span>
 </div>
-<div class="liquido-box">
-  <span class="liquido-label">✅ Horas trabalhadas</span>
-  <span class="liquido-value" id="liquido-display">--h --m</span>
-</div>
+
+<!-- Almoço — laranja -->
 <div class="almoco-box">
   <span class="almoco-label">Intervalo de almoço</span>
   <span class="almoco-value" id="almoco-display">--h --m</span>
+</div>
+
+<!-- Horas trabalhadas — verde -->
+<div class="liquido-box">
+  <span class="liquido-label">✅ Horas trabalhadas</span>
+  <span class="liquido-value" id="liquido-display">--h --m</span>
 </div>
 ```
 
   </div>
 
+  <!-- NOTA -->
+
   <div class="card">
-    <p class="section-label">Nota (opcional)</p>
-    <textarea id="nota" placeholder="Ex: trabalho remoto, reunião extra, falta de material..."></textarea>
+    <p class="section-label"><span class="dot"></span>Nota (opcional)</p>
+    <textarea id="nota" placeholder="Ex: trabalho extra, reunião, falta de material, deslocação..."></textarea>
   </div>
 
   <div class="error-msg" id="error-msg">Por favor preencha o local da obra, data, hora de entrada e saída final.</div>
@@ -385,7 +627,7 @@ text-align: center;
   const EMPRESA = "Propósitos Interligados";
   const WHATSAPP_DESTINO = "351939910536";
 
-  document.getElementById('pro-label').textContent = PROFISSIONAL;
+  // nome editável pelo profissional
   document.getElementById('data').value = new Date().toISOString().slice(0, 10);
 
   function toMin(t) {
@@ -393,7 +635,6 @@ text-align: center;
     const [h, m] = t.split(':').map(Number);
     return h * 60 + m;
   }
-
   function minToStr(m) {
     if (m == null || isNaN(m) || m < 0) return '--h --m';
     return Math.floor(m / 60) + 'h ' + String(m % 60).padStart(2, '0') + 'm';
@@ -424,11 +665,10 @@ text-align: center;
     document.getElementById('almoco-display').textContent  = minToStr(almoco);
   }
 
-  ['entrada','saida-almoco','retorno-almoco','saida-final'].forEach(id => {
-    document.getElementById(id).addEventListener('change', calcular);
-  });
+  // listeners removidos — picker chama calcular directamente
 
   function enviarWhatsApp() {
+    const profissional = document.getElementById('pro-label').value.trim() || 'Profissional';
     const obra  = document.getElementById('obra').value.trim();
     const data  = document.getElementById('data').value;
     const ent   = document.getElementById('entrada').value;
@@ -448,22 +688,60 @@ text-align: center;
 
     const dataFmt = new Date(data + 'T12:00:00').toLocaleDateString('pt-PT', { day: '2-digit', month: 'long', year: 'numeric' });
 
-    let msg = `📋 *Registo de Horas*\n`;
-    msg += `🏢 ${EMPRESA}\n`;
-    msg += `👤 ${PROFISSIONAL}\n`;
+    let msg = `📋 *Registo de Horas — ${EMPRESA}*\n\n`;
+    msg += `👤 *${profissional}*\n`;
     msg += `📅 ${dataFmt}\n`;
     msg += `📍 ${obra}\n\n`;
-    msg += `🕐 Entrada: ${ent}\n`;
-    if (sa) msg += `🍽️ Saída almoço: ${sa}\n`;
-    if (ra) msg += `↩️ Retorno almoço: ${ra}\n`;
-    msg += `🕔 Saída final: ${sf}\n\n`;
+    msg += `🕐 Entrada: *${ent}*\n`;
+    if (sa) msg += `🍽️ Saída almoço: *${sa}*\n`;
+    if (ra) msg += `↩️ Retorno almoço: *${ra}*\n`;
+    msg += `🕔 Saída final: *${sf}*\n\n`;
     msg += `⏱️ Total (entrada → saída): ${minToStr(bruto)}\n`;
-    if (almoco != null) msg += `⏸️ Intervalo almoço: ${minToStr(almoco)}\n`;
+    if (almoco != null) msg += `🟠 Intervalo almoço: ${minToStr(almoco)}\n`;
     msg += `✅ *Horas trabalhadas: ${minToStr(liquido)}*`;
-    if (nota) msg += `\n\n📝 Nota: ${nota}`;
+    if (nota) msg += `\n\n📝 _${nota}_`;
 
     window.open(`https://wa.me/${WHATSAPP_DESTINO}?text=${encodeURIComponent(msg)}`, '_blank');
   }
+
+  // ── TIME PICKER LÓGICA ──
+  const timeState = {
+    'entrada':        { h: null, m: null },
+    'saida-almoco':   { h: null, m: null },
+    'retorno-almoco': { h: null, m: null },
+    'saida-final':    { h: null, m: null },
+  };
+
+  function pad(n) { return String(n).padStart(2,'0'); }
+
+  function updateDisplay(id) {
+    const s = timeState[id];
+    const hEl = document.getElementById('disp-h-' + id);
+    const mEl = document.getElementById('disp-m-' + id);
+    const inp = document.getElementById(id);
+    if (s.h === null) {
+      hEl.textContent = '--';
+      mEl.textContent = '--';
+      inp.value = '';
+    } else {
+      hEl.textContent = pad(s.h);
+      mEl.textContent = pad(s.m);
+      inp.value = pad(s.h) + ':' + pad(s.m);
+    }
+    calcular();
+  }
+
+  function changeTime(id, part, dir) {
+    const s = timeState[id];
+    if (s.h === null) { s.h = 8; s.m = 0; }
+    if (part === 'h') {
+      s.h = (s.h + dir + 24) % 24;
+    } else {
+      s.m = (s.m + dir * 5 + 60) % 60;
+    }
+    updateDisplay(id);
+  }
+
 </script>
 
 </body>
